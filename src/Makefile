@@ -19,12 +19,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 ############################################################################
-adsc-objs = AdscApi.o AdscCamera.o AdscInterface.o
+### adsc-objs = AdscApi.o AdscCamera.o AdscInterface.o
+### SRCS = $(adsc-objs:.o=.cpp)
 
-SRCS = $(adsc-objs:.o=.cpp)
+SRCS = $(wildcard *.cpp)
+adsc-objs = $(SRCS:.cpp=.o)
 
 CXX = g++
-INC = -I../include -I../../../common/include -I../../../hardware/include 
+INC = -I../include -I../../../common/include -I../../../hardware/include \
+	-I../../../third-party/yat/include
 CXXFLAGS += $(INC) -Wall -pthread -fPIC -g
 
 all: 	Adsc.o

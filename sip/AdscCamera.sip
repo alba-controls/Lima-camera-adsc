@@ -68,12 +68,14 @@ class Camera
 	void setLastImage(int last_image);
 	void setFileName(const std::string& filename);
 
+/*
 	const char* __repr__();
-%MethodCode
+//%MethodCode
 	std::ostringstream str;
 	str << *sipCpp;	
 	const std::string& tmpString = str.str();
 	sipRes = tmpString.c_str();
-%End
+//%End
+*/
 };
 };
